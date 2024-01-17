@@ -33,7 +33,7 @@ public class Convert {
 
 	public static String[][] map() throws FileNotFoundException {
 		String[][] map;
-		Scanner countLineScanner = new Scanner(new File("src/mapping.txt"));
+		Scanner countLineScanner = new Scanner(new File("Lecture_00/mapping.txt"));
 		int lineCount = 0;
 		while (countLineScanner.hasNext()) {
 			countLineScanner.nextLine();
@@ -42,7 +42,7 @@ public class Convert {
 
 		map = new String[lineCount][2];
 
-		Scanner fileScanner = new Scanner(new File("src/mapping.txt"));
+		Scanner fileScanner = new Scanner(new File("Lecture_00/mapping.txt"));
 
 		int indexRow = 0;
 		while (fileScanner.hasNext()) {
