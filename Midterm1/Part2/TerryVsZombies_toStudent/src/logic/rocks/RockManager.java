@@ -32,5 +32,10 @@ public class RockManager {
 		int damage = GameManager.getRandomNumberInRange(0, 10);
 		return new PoisonRock(damage, poison);
 	}
+
+	public static PierceRock randomPierce() {
+		int damage = GameManager.getRandomNumberInRange(0, 10);
+		return new PierceRock(damage);
+	}
 	
 }

@@ -20,11 +20,19 @@ public class GameManager {
 	}
 
 	public static int attackZombie(Zombie zombie) {
-		//TODO: deal damage with current rock to the given zombie
-		//set the currentRock as nextRock
-		//set nextRock as randomRock
-		//return the damage dealt to the zombie
+		// Get the damage dealt by the current rock
+		int damageDealt = currentRock.dealDamage(zombie);
+
+		// Set the currentRock as nextRock
+		currentRock = nextRock;
+
+		// Set nextRock as randomRock
+		nextRock = RockManager.randomRock();
+
+		// Return the damage dealt to the zombie
+		return damageDealt;
 	}
+
 	
 	public static int takeTurn(Zombie zombie) {
 		zombie.decay();
