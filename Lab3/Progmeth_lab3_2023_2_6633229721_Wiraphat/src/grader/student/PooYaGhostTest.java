@@ -12,6 +12,7 @@ import logic.game.GameController;
 import logic.ghost.GaGhost;
 import logic.ghost.PooYaGhost;
 import logic.ghost.PooYaGhost;
+import utils.GameUtils;
 
 import java.util.ArrayList;
 
@@ -21,12 +22,12 @@ class PooYaGhostTest {
 
     @BeforeEach
     void setUp() {
-        pooYaGhost = new PooYaGhost(2); 
+        pooYaGhost = new PooYaGhost(2);
     }
-    
+
     @Test
     void testIsDestroyedFalse() {
-        assertFalse(pooYaGhost.isDestroyed()); 
+        assertFalse(pooYaGhost.isDestroyed());
     }
 
     @Test
@@ -37,13 +38,13 @@ class PooYaGhostTest {
 
     @Test
     void testGetHp() {
-        assertEquals(10, pooYaGhost.getHp()); 
+        assertEquals(10, pooYaGhost.getHp());
     }
 
     @Test
     void testDecreaseHp() {
         pooYaGhost.decreaseHp(3);
-        assertEquals(7, pooYaGhost.getHp()); 
+        assertEquals(7, pooYaGhost.getHp());
     }
 
     @Test
@@ -55,30 +56,35 @@ class PooYaGhostTest {
 
     @Test
     void testAttack() {
-        GameController.getInstance().setHp(20); 
-        GameController.getInstance().setScore(15); 
+        GameController.getInstance().setHp(20);
+        GameController.getInstance().setScore(15);
         pooYaGhost.attack();
         assertEquals(18, GameController.getInstance().getHp());
-        assertEquals(13, GameController.getInstance().getScore()); 
+        assertEquals(13, GameController.getInstance().getScore());
     }
-    
-   
+
+
     @Test
     void testToString() {
-        assertEquals("PooYaGhost [HP: 10 , Power: 2]", pooYaGhost.toString()); 
+        assertEquals("PooYaGhost [HP: 10 , Power: 2]", pooYaGhost.toString());
     }
 
     @Test
     void testDamage() {
-    	// TODO: Fill your code
-        ArrayList<Ghost> ghostList = new ArrayList<>();
-        for (int i = 0; i < 3; ++i) {
-            ghostList.add(new PooYaGhost(9));
-        }
+        // TODO: Fill your code
+        GameController controller = GameController.getInstance();
+        PooYaGhost pooYaGhost1 = new PooYaGhost(9);
 
-        assertEquals(19, ghostList.get(0).getHp());
-        assertEquals(19, ghostList.get(1).getHp());
-        assertEquals(19, ghostList.get(2).getHp());
+        controller.getGhosts().clear();
+        for (int i = 0; i < 3; ++i) controller.getGhosts().add(GameUtils.getRandomGhost(false));
+
+        controller.getGhosts().add(pooYaGhost1);
+        pooYaGhost1.damage();
+
+        assertEquals(12, controller.getGhosts().get(0).getHp());
+        assertEquals(12, controller.getGhosts().get(1).getHp());
+        assertEquals(12, controller.getGhosts().get(2).getHp());
+
     }
 
 }
