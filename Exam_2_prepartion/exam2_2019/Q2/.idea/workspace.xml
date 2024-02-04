@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aab8f2be-e5bf-464b-93e9-a8bba30fc531" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Final_2110215_2019-2_CoverPage.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Part1/fighters/derived/Guildmaster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Part1/fighters/derived/Tank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Part1/fighters/derived/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Q2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Q2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/base/Attackable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/base/Attackable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/base/Guardable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/base/Guardable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/base/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/base/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/derived/Guildmaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/derived/Guildmaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/derived/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/derived/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/fighters/derived/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fighters/derived/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/logic/BattleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/BattleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/logic/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/logic/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/logic/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/GameManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/test/grader/GuildmasterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/GuildmasterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/test/grader/TankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/TankTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Part1/test/grader/WizardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/grader/WizardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled folder/.idea/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +45,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.GuildmasterTest and 2 more.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bankyy/Documents/GitHub/Programming-Methodology-2110215/Exam_2_prepartion/exam2_2019/Q2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.GuildmasterTest and 2 more.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bankyy/Documents/GitHub/Programming-Methodology-2110215/Exam_2_prepartion/exam2_2019/Q2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
