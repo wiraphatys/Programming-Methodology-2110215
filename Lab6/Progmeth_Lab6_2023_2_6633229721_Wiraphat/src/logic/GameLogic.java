@@ -10,7 +10,7 @@ public class GameLogic {
 
 	private static GameLogic instance = null;
 
-    public boolean isGameStart() {
+	public boolean isGameStart() {
 		return gameStart;
 	}
 
@@ -20,11 +20,11 @@ public class GameLogic {
 
 	private static boolean gameStart=false;
 
-    private static Timer[] playerTimer= new Timer[] {new Timer(1, 0, 0), new Timer(1, 0, 0)};
+	private static Timer[] playerTimer= new Timer[] {new Timer(1, 0, 0), new Timer(1, 0, 0)};
 
-    private static TimerPane[] timerPane;
+	private static TimerPane[] timerPane;
 
-    private static boolean isGameEnd;
+	private static boolean isGameEnd;
 	private static boolean isOTurn;
 	private static ControlPane controlPane;
 	private final int[][] board = new int[3][3];
@@ -33,7 +33,7 @@ public class GameLogic {
 
 	private GameLogic() {
 		playerTimer = new Timer[] {new Timer(5, 0, 0), new Timer(5, 0, 0)};
-        timerPane = new TimerPane[2];
+		timerPane = new TimerPane[2];
 		this.newGame();
 	}
 
@@ -42,78 +42,69 @@ public class GameLogic {
 	public void beginTurns(int pl) {
 		startCountDownTimer(pl);
 	}
+
+
 	public  void startCountDownTimer(int pl) {
-			/*
-		 * FIX CODES
-		 * The following code will make the winning cells change to green background,but it will freeze
-		  the program while it's working.
-		 * Implement it in a thread so it's will work properly,Don't forget to start the thread.
-		 * If implement correctly,the block will change one at a time with correct animation. */
-		runCountDownTimer(pl);
+		new Thread(() -> {
+			try {
+				runCountDownTimer(pl);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}).start();
 	}
+
 	public void runCountDownTimer(int pl) throws InterruptedException {
 		Timer plTimer = playerTimer[pl];
 		plTimer.setStop(false);
-		if(pl==0) {
-			while (gameStart&&isOTurn && !plTimer.isTimerEmpty()) {
+		if (pl == 0) {
+			while (gameStart && isOTurn && !plTimer.isTimerEmpty()) {
 				Thread.sleep(20);
-					/*
-			 * FIX CODE: There is JavaFX commands inside the code below
-				Add something to the code below to make JavaFX commands can
-				function in the thread
-			 */
-				timerPane[pl].setTimer(plTimer);
-
+				Platform.runLater(() -> timerPane[pl].setTimer(plTimer));
 				plTimer.decrementTimer(2);
 			}
-		}
-		else {
-			while (gameStart&&!isOTurn&&!plTimer.isTimerEmpty()) {
+		} else {
+			while (gameStart && !isOTurn && !plTimer.isTimerEmpty()) {
 				Thread.sleep(20);
-				/*
-				 *	/*
-			 * FIX CODE: There is JavaFX commands inside the code below
-				Add something to the code below to make JavaFX commands can
-				function in the thread
-				 */
-				timerPane[pl].setTimer(plTimer);
-
+				Platform.runLater(() -> timerPane[pl].setTimer(plTimer));
 				plTimer.decrementTimer(2);
 			}
 		}
 		plTimer.setStop(true);
 
-		if(plTimer.isTimerEmpty()) {
-			if(isOTurn)controlPane.updateGameText("X wins!");
-			else controlPane.updateGameText("O wins!");
-			return;
+		if (plTimer.isTimerEmpty()) {
+			if (isOTurn) {
+				controlPane.updateGameText("X wins!");
+			} else {
+				controlPane.updateGameText("O wins!");
+			}
+			setGameEnd(true);
+			setGameStart(false);
 		}
 	}
-	private void runWinningPattern()  {
-		/*
-		 * FIX CODES
-		 * The following code will make the winning cells change to green background,but it will freeze
-		 * the program while it's working.
-		 * Implement it in a thread so it's will work properly,Don't forget to start the thread.
-		 * If implement correctly,the block will change one at a time with correct animation.
-		 * Don't forget to handle exception */
-		winningPattern(score);
 
+	private void runWinningPattern()  {
+		new Thread(() -> {
+			try {
+				winningPattern(score);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}).start();
 	}
 
-
 	private void winningPattern(int[] score) throws InterruptedException {
-		Thread.sleep(200);
-		for(int x:score){
-			/*
-			 * FIX CODE: There is JavaFX commands inside the code below
-				Add something to the code below to make JavaFX commands can
-				function in the thread
-			 */
-			if(isOTurn){controlPane.getTicTacToePane().getAllCells().get(x).draw(new Image(ClassLoader.getSystemResource("o.png").toString()),Color.GREEN);}
-			else{controlPane.getTicTacToePane().getAllCells().get(x).draw(new Image(ClassLoader.getSystemResource("x.png").toString()),Color.GREEN);}
-			/*Make Thread wait for 200 ms between loop/*
-			/*Do not change code below this line*/
+		for (int x : score) {
+			Platform.runLater(() -> {
+				if (isOTurn) {
+					controlPane.getTicTacToePane().getAllCells().get(x).draw(new Image(ClassLoader.getSystemResource("o.png").toString()),Color.GREEN);
+				}
+				else{
+					controlPane.getTicTacToePane().getAllCells().get(x).draw(new Image(ClassLoader.getSystemResource("x.png").toString()),Color.GREEN);
+				}
+			});
+
+			Thread.sleep(200);
 		}
 	}
 
