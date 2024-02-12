@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Progmeth_Lab6_2023_2_6633229721_Wiraphat:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Progmeth_Lab6_2023_2_6633229721_Wiraphat_jar</output-path>
+    <root id="archive" name="Progmeth_Lab6_2023_2_6633229721_Wiraphat.jar">
+      <element id="module-output" name="Progmeth_Lab6_2023_2_6633229721_Wiraphat" />
+      <element id="module-source" name="Progmeth_Lab6_2023_2_6633229721_Wiraphat" />
+      <element id="library" level="application" name="javafx-swt" />
+    </root>
+  </artifact>
+</component>
